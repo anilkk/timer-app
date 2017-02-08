@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <link data-require="bootstrap@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script data-require="bootstrap@3.3.6" data-semver="3.3.6" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script data-require="angular.js@1.5.0" data-semver="1.5.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div ng-controller="timerapp as vm">
+                <h1>{{vm.title}}</h1>
+                <h2>clock</h2>
+                <div class="wrapper" ng-class="{'show-animation': vm.showAnimation}">
+                    <div class="spinner pie" ng-style="{'animation-duration': vm.animationDuration}"></div>
+                    <div class="filler pie" ng-style="{'animation-duration': vm.animationDuration}"></div>
+                    <div class="mask" ng-style="{'animation-duration': vm.animationDuration}"></div>
+                </div>
+                <input type="number" ng-model="vm.timerTimeValue" placeholder="00:00:00" min="0" />
+                <br />
+                <br />
+                <button ng-click="vm.startTimer()"> Start</button>
+                <button ng-click="vm.stopTimer()"> Stop</button>
+                <br />
+                <br />
+                <button ng-click="vm.updateTimer(1)"> 1 min</button>
+                <button ng-click="vm.updateimer(2)"> 2 min</button>
+                <br />
+                <br />
+                <button ng-click="vm.updateimer(5)"> 5 min</button>
+                <button ng-click="vm.updateimer(10)"> 10 min</button>
+                <br />
+                <h2 class="timer">{{vm.runningTimerValue}}</h2>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
